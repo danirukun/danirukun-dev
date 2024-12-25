@@ -26,9 +26,6 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.15.4(rollup@4.21.2)(typescript@5.2.2))(tailwindcss@3.3.3)
-      '@egjs/svelte-infinitegrid':
-        specifier: ^4.12.0
-        version: 4.12.0
       '@fortawesome/free-brands-svg-icons':
         specifier: ^6.4.2
         version: 6.4.2
@@ -86,9 +83,6 @@ importers:
       svelte-awesome:
         specifier: ^3.3.5
         version: 3.3.5(svelte@4.2.1)
-      svelte-carousel:
-        specifier: ^1.0.25
-        version: 1.0.25
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0
@@ -921,12 +915,6 @@ packages:
     resolution: {integrity: sha512-QBEeUmc5K6kzut0uurwBtJhJW2fc/KEdKhST2/71Ln6V3j4b4qzK1/OeDsUHAt/RM2Dxe5TjWNn82r6WzmrAIQ==}
     engines: {node: '>=18'}
 
-  '@cfcs/core@0.0.24':
-    resolution: {integrity: sha512-feB38qu+eDk0Pggh/yR7gjaNmvUYA2uCxHP3Pz2MLE4LZ/9jPdtu8bzCSI47yTEhWyZCF5Pk698hdz8IN2mTjA==}
-
-  '@cfcs/core@0.0.5':
-    resolution: {integrity: sha512-TZ/RXKV7MUrqFpiX+16uaaptv5jgChWNsuE6w8Rn3eJbO1PFd4Wpn25zeJbii7ch46ck8/ZIIYCcW3pHiYtm4Q==}
-
   '@dnd-kit/accessibility@3.1.0':
     resolution: {integrity: sha512-ea7IkhKvlJUv9iSHJOnxinBcoOI3ppGnnL+VDJ75O45Nss6HtZd8IdN8touXPDtASfeI2T2LImb8VOZcL47wjQ==}
     peerDependencies:
@@ -954,27 +942,6 @@ packages:
     resolution: {integrity: sha512-+MKAJEOfaBe5SmV6t34p80MMKhjvUz0vRrvVJbPT0WElzaOJ/1xs+D+KDv+tD/NE5ujfrChEcshd4fLn0wpiqg==}
     peerDependencies:
       react: '>=16.8.0'
-
-  '@egjs/children-differ@1.0.1':
-    resolution: {integrity: sha512-DRvyqMf+CPCOzAopQKHtW+X8iN6Hy6SFol+/7zCUiE5y4P/OB8JP8FtU4NxtZwtafvSL4faD5KoQYPj3JHzPFQ==}
-
-  '@egjs/component@3.0.4':
-    resolution: {integrity: sha512-sXA7bGbIeLF2OAw/vpka66c6QBBUPcA4UUhR4WGJfnp2XWdiI8QrnJGJMr/UxpE/xnevX9tN3jvNPlW8WkHl3g==}
-
-  '@egjs/grid@1.16.0':
-    resolution: {integrity: sha512-w344hL2HNwmOHu379EG9I8ULkWF4A0cVf1XDn5nGlLXc+8c/rMvQadMBkGPOcdWMEKvFZpEiOPI7tWlXLOCloQ==}
-
-  '@egjs/imready@1.4.1':
-    resolution: {integrity: sha512-JIOBs4lB7FYdsKi5uvz2j3SObX8eShtZjtqlOH41tm185aJOQZwiKBK8+V4MxzG4X6DqVhpdN8UcuVwBbElfsg==}
-
-  '@egjs/infinitegrid@4.12.0':
-    resolution: {integrity: sha512-zoDz+mag7DAropcgmxW0Bx3JQ5ID19lk+AUN9rf9U7diwmO8IBfddX44jOVc9+ya5yZ+Goj95Fkm5S3GqCOrZQ==}
-
-  '@egjs/list-differ@1.0.1':
-    resolution: {integrity: sha512-OTFTDQcWS+1ZREOdCWuk5hCBgYO4OsD30lXcOCyVOAjXMhgL5rBRDnt/otb6Nz8CzU0L/igdcaQBDLWc4t9gvg==}
-
-  '@egjs/svelte-infinitegrid@4.12.0':
-    resolution: {integrity: sha512-Z6AYWbcRLOaqZxW36oA6sLMpxGhKq8p/7RRY0kNujSAYW97rO5KpBTqM5C9PF2hf1sGqUw6Dg4oxXUUSXXaydQ==}
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -3041,9 +3008,6 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  easy-reactive@1.0.4:
-    resolution: {integrity: sha512-dFVouegPctMf6XT5si+sRByBWUQE30n99TW0Y45Y7mccmNsbSl4uXA2sBGI8zCDZqXjhb8ouA3wVVhSSGpXk5Q==}
-
   electron-to-chromium@1.5.2:
     resolution: {integrity: sha512-kc4r3U3V3WLaaZqThjYz/Y6z8tJe+7K0bbjUVo3i+LWIypVdMx5nXCkwRe6SWbY6ILqLdc1rKcKmr3HoH7wjSQ==}
 
@@ -3836,9 +3800,6 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
-
-  lodash.clonedeep@4.5.0:
-    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -5276,9 +5237,6 @@ packages:
     resolution: {integrity: sha512-RIi+OI6CEn+fTdYy7UOgImEUWvdQSwP9SiMC44UKyFO+8+gjj+NgTG67hI8j2rTHQVvCP820Uj+4UoZG8CCUfA==}
     peerDependencies:
       svelte: '>= 3.43.1 < 6'
-
-  svelte-carousel@1.0.25:
-    resolution: {integrity: sha512-vR/AbGYwlh3fgWaB5PJg+iqZFvoVCJq4JWdmlXvPtdG9TLlKJWBcoiKlMZt3MnFF7AqNW46tOH/O+uVMWQzyWQ==}
 
   svelte-hmr@0.16.0:
     resolution: {integrity: sha512-Gyc7cOS3VJzLlfj7wKS0ZnzDVdv3Pn2IuVeJPk9m2skfhcu5bq3wtIZyQGggr7/Iim5rH5cncyQft/kRLupcnA==}
@@ -7077,14 +7035,6 @@ snapshots:
       hotscript: 1.0.13
       nanoid: 5.0.7
 
-  '@cfcs/core@0.0.24':
-    dependencies:
-      '@egjs/component': 3.0.4
-
-  '@cfcs/core@0.0.5':
-    dependencies:
-      '@egjs/component': 3.0.4
-
   '@dnd-kit/accessibility@3.1.0(react@18.3.1)':
     dependencies:
       react: 18.3.1
@@ -7116,37 +7066,6 @@ snapshots:
     dependencies:
       react: 18.3.1
       tslib: 2.6.2
-
-  '@egjs/children-differ@1.0.1':
-    dependencies:
-      '@egjs/list-differ': 1.0.1
-
-  '@egjs/component@3.0.4': {}
-
-  '@egjs/grid@1.16.0':
-    dependencies:
-      '@egjs/children-differ': 1.0.1
-      '@egjs/component': 3.0.4
-      '@egjs/imready': 1.4.1
-
-  '@egjs/imready@1.4.1':
-    dependencies:
-      '@cfcs/core': 0.0.24
-      '@egjs/component': 3.0.4
-
-  '@egjs/infinitegrid@4.12.0':
-    dependencies:
-      '@cfcs/core': 0.0.5
-      '@egjs/children-differ': 1.0.1
-      '@egjs/component': 3.0.4
-      '@egjs/grid': 1.16.0
-      '@egjs/list-differ': 1.0.1
-
-  '@egjs/list-differ@1.0.1': {}
-
-  '@egjs/svelte-infinitegrid@4.12.0':
-    dependencies:
-      '@egjs/infinitegrid': 4.12.0
 
   '@emmetio/abbreviation@2.3.3':
     dependencies:
@@ -9236,12 +9155,6 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  easy-reactive@1.0.4:
-    dependencies:
-      lodash.clonedeep: 4.5.0
-      lodash.get: 4.4.2
-      lodash.isequal: 4.5.0
-
   electron-to-chromium@1.5.2: {}
 
   emmet@2.4.6:
@@ -10140,8 +10053,6 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
-
-  lodash.clonedeep@4.5.0: {}
 
   lodash.debounce@4.0.8: {}
 
@@ -12037,10 +11948,6 @@ snapshots:
   svelte-awesome@3.3.5(svelte@4.2.1):
     dependencies:
       svelte: 4.2.1
-
-  svelte-carousel@1.0.25:
-    dependencies:
-      easy-reactive: 1.0.4
 
   svelte-hmr@0.16.0(svelte@4.2.1):
     dependencies:
