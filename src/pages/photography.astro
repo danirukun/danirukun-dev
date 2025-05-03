@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-import { Button } from '../components/ui/button';
+import { Button as ButtonPrimitive } from 'bits-ui';
 import Icon from 'svelte-awesome';
 import instagram from 'svelte-awesome/icons/instagram';
 import flickr from 'svelte-awesome/icons/flickr';
@@ -37,18 +37,18 @@ import { faUnsplash } from '@fortawesome/free-brands-svg-icons/faUnsplash';
 					</h2>
 
 					<div class='mt-4 flex max-w-sm flex-col gap-4'>
-						<Button href='https://www.instagram.com/danpetrovphoto/'>
+						<ButtonPrimitive.Root href='https://www.instagram.com/danpetrovphoto/'>
 							<Icon data={instagram} />
 							<span class='ml-2'>Instagram</span>
-						</Button>
-						<Button href='https://unsplash.com/@danpetrov'>
+						</ButtonPrimitive.Root>
+						<ButtonPrimitive.Root href='https://unsplash.com/@danpetrov'>
 							<Icon data={faUnsplash} />
 							<span class='ml-2'>Unsplash</span>
-						</Button>
-						<Button href='https://www.flickr.com/photos/danpetrov/'>
+						</ButtonPrimitive.Root>
+						<ButtonPrimitive.Root href='https://www.flickr.com/photos/danpetrov/'>
 							<Icon data={flickr} />
 							<span class='ml-2'>Flickr</span>
-						</Button>
+						</ButtonPrimitive.Root>
 					</div>
 				</section>
 			</section>

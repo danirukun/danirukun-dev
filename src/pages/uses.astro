@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 import type { Preference } from '../types';
 
-import * as Card from '../components/ui/card';
+// import * as Card from '../components/ui/card';
 import { sanityClient } from 'sanity:client';
 
 const preferences = (await sanityClient.fetch(
@@ -32,13 +32,13 @@ const preferences = (await sanityClient.fetch(
 			<div class='m-8 mx-auto grid max-w-6xl grid-cols-1 gap-4 bg-background px-4 md:grid-cols-2'>
 				{
 					preferences.map((preference) => (
-						<Card.Root id={preference._id}>
-							<Card.Header>
-								<Card.Title>{preference.name}</Card.Title>
-								<Card.Description>{preference.choice}</Card.Description>
-							</Card.Header>
-							<Card.Content>{preference.description}</Card.Content>
-						</Card.Root>
+						<div id={preference._id} class="rounded-lg border bg-card text-card-foreground shadow-sm">
+							<div class="flex flex-col space-y-1.5 p-6">
+								<h3 class="text-lg font-semibold leading-none tracking-tight">{preference.name}</h3>
+								<p class="text-sm text-muted-foreground">{preference.choice}</p>
+							</div>
+							<div class="p-6 pt-0">{preference.description}</div>
+						</div>
 					))
 				}
 			</div>

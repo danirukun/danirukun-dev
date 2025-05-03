@@ -47,21 +47,3 @@ The project uses SanityCMS for the content. The studio repository can be found o
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
-
-### Model attributions
-
-Desk by dook [CC-BY] via Poly Pizza
-
-"Smol Ame (Low poly)" (https://skfb.ly/owpSr) by Hasksoft is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-
-"Neco-Arc Dakimakura" (https://skfb.ly/oruvR) by K00NB0AT is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-
-Painting by Jonathan Granskog [CC-BY] via Poly Pizza
-
-Wall painting by jeremy [CC-BY] via Poly Pizza
-
-Katana by dook [CC-BY] via Poly Pizza
-
-Camera by Poly by Google [CC-BY] via Poly Pizza
-
-Airship by Poly by Google [CC-BY] via Poly Pizza
