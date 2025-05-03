@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import SocialsBar from '../components/SocialsBar.svelte';
 import { SITE_TITLE, SITE_DESCRIPTION, SOCIALS } from '../consts';
 
+import { Button } from 'bits-ui';
+
 const profilePicURL = 'https://github.com/DaniruKun.png';
 ---
 
@@ -18,46 +20,60 @@ const profilePicURL = 'https://github.com/DaniruKun.png';
 				class='relative mx-auto flex h-[70vh] flex-col place-content-around bg-slate-100 shadow-sm sm:min-h-screen'>
 				<div
 					id='hero'
-					class='flex flex-col place-items-center justify-center space-y-4 align-middle md:flex-row md:items-center md:justify-center md:space-x-6'>
-					<section id='brand-title' class='items-center'>
-						<span class='text-center text-2xl font-bold'>danirukun</span>
-					</section>
+					class='mx-auto flex flex-col place-items-center justify-center gap-20 space-y-4 rounded-lg bg-white p-10 md:max-w-3xl'>
+					<section
+						class='flex w-full flex-col justify-between space-y-4 align-middle md:flex-row md:items-center'
+						id='avatar-nav'>
+						<div id='avatar-container' class='flex flex-col justify-center space-y-4 align-middle'>
+							<img
+								src={profilePicURL}
+								alt='Avatar'
+								class='mx-auto w-44 rounded-full border-2 border-black shadow-lg'
+							/>
+							<section id='brand-title' class='items-center text-center text-2xl font-bold'>
+								<p>danirukun</p>
+							</section>
+						</div>
 
-					<img
-						src={profilePicURL}
-						alt='Avatar'
-						class='mx-auto w-64 rounded-full border-2 border-black shadow-lg'
-					/>
-
-					<section id='navigation' class='mx-auto align-middle'>
-						<nav class='flex flex-col space-y-4'>
-							<a
-								href='/portfolio'
-								class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-left'
-								>Portfolio</a
-							>
-							<a
-								href='/photography'
-								class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-left'
-								>Photography</a
-							>
-							<a
-								href='/blog'
-								class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-left'
-								>Blog</a
-							>
-							<a
-								href='/about'
-								class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-left'
-								>About</a
-							>
-							<a
-								href='/uses'
-								class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-left'
-								>Computing</a
-							>
-						</nav>
+						<section id='navigation' class='align-right text-right'>
+							<nav class='flex flex-col space-y-4'>
+								<Button.Root
+									href='/portfolio'
+									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
+									Portfolio
+								</Button.Root>
+								<Button.Root
+									href='/photography'
+									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
+									Photography
+								</Button.Root>
+								<Button.Root
+									href='/blog'
+									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
+									Blog
+								</Button.Root>
+								<Button.Root
+									href='/about'
+									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
+									About
+								</Button.Root>
+								<Button.Root
+									href='/uses'
+									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
+									Computing
+								</Button.Root>
+							</nav>
+						</section>
 					</section>
+					<p>
+						Hi, my name is Dan. By day I'm a software engineer in the creator industry, the rest of
+						the time I do a lot of things like photography,
+						<br />3D printing and design, as well as travel to cons and events around the world! I'm
+						also interested in Japanese culture and fashion, so I definitely travel to Japan a lot
+						😄
+						<br />
+						 Check out the links and follow me on X for updates!
+					</p>
 				</div>
 
 				<section id='socials' class='mx-auto w-fit px-4 py-2'>
