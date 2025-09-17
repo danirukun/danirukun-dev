@@ -1,0 +1,237 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import CompanyLink from '../components/CompanyLink.svelte';
+import Icon from 'svelte-awesome';
+import mapMarker from 'svelte-awesome/icons/mapMarker';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${SITE_TITLE} • Work`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main class="mx-auto max-w-6xl">
+			<h1 class="py-4 text-center text-6xl font-bold">Work</h1>
+			<section class="space-y-8 text-lg">
+				<p class="text-center">
+					I offer consulting and hands-on development for creators, VTubers, and businesses in the
+					creator economy. My strengths span full‑stack web development, distributed systems, live
+					video/audio engineering, and CG pipelines.
+				</p>
+
+				<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+					<section>
+						<h2 class="mb-2 text-3xl font-bold">Services</h2>
+						<ul class="ml-6 list-disc space-y-2">
+							<li>Consulting for creators, VTubing, and software projects</li>
+							<li>Full‑stack web app design and development</li>
+							<li>Distributed systems architecture and optimization</li>
+							<li>Video and audio pipeline engineering for live and VOD</li>
+							<li>CG pipeline support and realtime/graphics integration</li>
+							<li>Basic 3D design and prototyping</li>
+							<li>Photography and photo editing</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2 class="mb-2 text-3xl font-bold">Specialties</h2>
+						<ul class="ml-6 list-disc space-y-2">
+							<li>Full‑stack web development</li>
+							<li>Project Management</li>
+							<li>Distributed systems</li>
+							<li>Video and audio engineering</li>
+							<li>Computer Graphics (CG)</li>
+						</ul>
+					</section>
+				</div>
+
+				<section>
+					<h2 class="mb-2 text-3xl font-bold">Selected Experience</h2>
+					<ul class="ml-6 list-disc space-y-2">
+						<li>
+							<CompanyLink
+								client:idle
+								href="https://streamelements.com"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								StreamElements
+								<span slot="preview" class="block">
+									<strong>StreamElements</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="h-4 w-4 opacity-70" />
+										 USA
+									</span><br />
+									<span class="text-muted-foreground">Creator tools, streaming, sponsorships</span>
+								</span>
+							</CompanyLink>
+							 — Full‑stack web development, distributed systems, creator tools and sponsorships
+							(including
+							<CompanyLink
+								client:idle
+								href="https://blog.twitch.tv/en/2025/02/25/expanding-your-sponsorship-opportunities-on-twitch/"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								Twitch Sponsorships
+								<span slot="preview" class="block">
+									<strong>Twitch Sponsorships</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="h-4 w-4 opacity-70" />
+										 USA
+									</span><br />
+									<span class="text-muted-foreground"
+										>Expanding sponsorship opportunities on Twitch</span
+									>
+								</span>
+							</CompanyLink>
+							 integration and
+							<CompanyLink
+								client:idle
+								href="https://grabtap.com"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								GrabTap
+								<span slot="preview" class="block">
+									<strong>GrabTap</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="h-4 w-4 opacity-70" />
+										 Global
+									</span><br />
+									<span class="text-muted-foreground">Back your fave creators
+										and score rewards.</span>
+								</span>
+							</CompanyLink>)
+						</li>
+						<li>
+							<CompanyLink
+								client:idle
+								href="https://www.evolution.com"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								Evolution Gaming
+								<span slot="preview" class="block">
+									<strong>Evolution</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="h-4 w-4 opacity-70" />
+										 Stockholm, Sweden
+									</span><br />
+									<span class="text-muted-foreground">Live casino & games</span>
+								</span>
+							</CompanyLink>
+							 — QA for high profile games like
+							<CompanyLink
+								client:idle
+								href="https://www.evolution.com/games/monopoly-live/"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								Monopoly Live
+								<span slot="preview" class="block">
+									<strong>Monopoly Live</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="size-4 opacity-70" />
+										 Stockholm, Sweden
+									</span><br />
+									<span class="text-muted-foreground">Evolution's live online game show</span>
+								</span>
+							</CompanyLink>, backend development in video encoding and delivery teams
+						</li>
+						<li>
+							<CompanyLink
+								client:idle
+								href="https://www.instagram.com/keekihime"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								Keekihime
+								<span slot="preview" class="block">
+									<strong>Keekihime</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="size-4 opacity-70" />
+										 Austria
+									</span><br />
+									<span class="text-muted-foreground">Cosplayer • Idol • Streamer</span>
+								</span>
+							</CompanyLink>
+							 booth — operations management (twice): merchandising, logistics, custom cheki time
+							slot reservation system (dev & ops), custom raffle / survey / quiz, and custom
+							equipment design/build (price tags, display stands, custom LED sign & programming)
+						</li>
+						<li>
+							<CompanyLink
+								client:idle
+								href="https://hololivepro.com"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								Hololive
+								<span slot="preview" class="block">
+									<strong>hololive production</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="size-4 opacity-70" />
+										 Tokyo, Japan
+									</span><br />
+									<span class="text-muted-foreground">VTuber agency</span>
+								</span>
+							</CompanyLink>
+							 fan booth —
+							<CompanyLink
+								client:idle
+								href="https://www.dokomi.de"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								DoKomi
+								<span slot="preview" class="block">
+									<strong>DoKomi</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="size-4 opacity-70" />
+										 Düsseldorf, Germany
+									</span><br />
+									<span class="text-muted-foreground">Germany's largest comic market</span>
+								</span>
+							</CompanyLink> (Düsseldorf, Germany — Germany's largest comic market), twice
+						</li>
+						<li>Custom digital artist stamp rally — designed and developed</li>
+						<li>Custom digital store and website — developed and operated</li>
+						<li>
+							<CompanyLink
+								client:idle
+								href="https://www.veizo.net/"
+								class="underline underline-offset-2"
+								contentClass="z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
+							>
+								Veizo
+								<span slot="preview" class="block">
+									<strong>Veizo</strong><br />
+									<span class="inline-flex items-center gap-2">
+										<Icon data={mapMarker} class="h-4 w-4 opacity-70" />
+										 Tokyo, Japan
+									</span><br />
+									<span class="text-muted-foreground">Creative studio & event support</span>
+								</span>
+							</CompanyLink>
+							 booth assistance — Vexpo
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<p class="mt-8 text-center">
+						For inquiries: <code>dan (at) danirukun (dot) com</code>
+					</p>
+				</section>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
