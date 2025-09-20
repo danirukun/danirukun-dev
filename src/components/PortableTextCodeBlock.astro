@@ -1,0 +1,187 @@
+---
+interface Props {
+  node: {
+    language?: string;
+    filename?: string;
+    code?: string;
+  }
+}
+
+const { node } = Astro.props;
+const { language = 'text', filename, code = '' } = node;
+
+// Language display names
+const languageNames: Record<string, string> = {
+  javascript: 'JavaScript',
+  typescript: 'TypeScript',
+  python: 'Python',
+  html: 'HTML',
+  css: 'CSS',
+  java: 'Java',
+  csharp: 'C#',
+  php: 'PHP',
+  ruby: 'Ruby',
+  go: 'Go',
+  rust: 'Rust',
+  json: 'JSON',
+  yaml: 'YAML',
+  markdown: 'Markdown',
+  bash: 'Bash',
+  sql: 'SQL',
+  text: 'Plain Text'
+};
+
+const displayLanguage = languageNames[language] || language;
+---
+
+<div class="code-block">
+  <div class="code-header">
+    {filename && (
+      <div class="filename">
+        <span class="file-icon">📄</span>
+        {filename}
+      </div>
+    )}
+    <div class="language-badge">
+      {displayLanguage}
+    </div>
+  </div>
+  <pre class={`language-${language}`}><code>{code}</code></pre>
+  <button class="copy-button" data-code={code}>
+    <span class="copy-icon">📋</span>
+    Copy
+  </button>
+</div>
+
+<script>
+  // Add copy functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButtons = document.querySelectorAll('.copy-button');
+    
+    copyButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const code = button.getAttribute('data-code');
+        if (code) {
+          try {
+            await navigator.clipboard.writeText(code);
+            const originalText = button.innerHTML;
+            button.innerHTML = '<span class="copy-icon">✅</span> Copied!';
+            setTimeout(() => {
+              button.innerHTML = originalText;
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy code:', err);
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .code-block {
+    position: relative;
+    margin: 2rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    background: #1e293b;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #334155 0%, #475569 100%);
+    border-bottom: 1px solid #475569;
+  }
+
+  .filename {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #f8fafc;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .language-badge {
+    background: rgba(99, 102, 241, 0.8);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+    background: #1e293b;
+    color: #e2e8f0;
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: rgba(15, 23, 42, 0.8);
+    color: #cbd5e1;
+    border: 1px solid #475569;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+  }
+
+  .copy-button:hover {
+    background: rgba(15, 23, 42, 0.9);
+    color: white;
+    border-color: #64748b;
+  }
+
+  .copy-icon {
+    font-size: 0.7rem;
+  }
+
+  /* Responsive design */
+  @media (max-width: 640px) {
+    .code-block {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      border-radius: 0;
+    }
+    
+    .code-header {
+      padding: 0.5rem 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    
+    .copy-button {
+      position: static;
+      align-self: flex-end;
+      margin-top: 0.5rem;
+    }
+    
+    .code-block pre {
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>

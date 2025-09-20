@@ -1,0 +1,26 @@
+---
+const { children } = Astro.props;
+---
+
+<code class="inline-code">{children}</code>
+
+<style>
+  .inline-code {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+    font-size: 0.9em;
+    border: 1px solid #e2e8f0;
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .inline-code {
+      background: #374151;
+      color: #f9fafb;
+      border-color: #4b5563;
+    }
+  }
+</style>

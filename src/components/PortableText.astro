@@ -1,12 +1,78 @@
 ---
 import { PortableText as PortableTextInternal } from 'astro-portabletext'
 import PortableTextImage from "./PortableTextImage.astro";
+import PortableTextCodeBlock from "./PortableTextCodeBlock.astro";
+import InlineCode from "./InlineCode.astro";
+
 const { portableText } = Astro.props;
+
 const components = {
   type: {
     image: PortableTextImage,
+    codeBlock: PortableTextCodeBlock,
+  },
+  mark: {
+    code: InlineCode,
   }
 };
 ---
 
-<PortableTextInternal value={portableText} components={components} />
+<div class="portable-text-container">
+  <PortableTextInternal value={portableText} components={components} />
+</div>
+
+<style>
+  .portable-text-container :global(> * + *) {
+    margin-top: 1.5rem;
+  }
+
+  .portable-text-container :global(h1),
+  .portable-text-container :global(h2),
+  .portable-text-container :global(h3),
+  .portable-text-container :global(h4),
+  .portable-text-container :global(h5),
+  .portable-text-container :global(h6) {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .portable-text-container :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .portable-text-container :global(ul),
+  .portable-text-container :global(ol) {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .portable-text-container :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .portable-text-container :global(pre) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .portable-text-container :global(blockquote) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .portable-text-container :global(img),
+  .portable-text-container :global(figure) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* First element should not have top margin */
+  .portable-text-container :global(> *:first-child) {
+    margin-top: 0;
+  }
+
+  /* Last element should not have bottom margin */
+  .portable-text-container :global(> *:last-child) {
+    margin-bottom: 0;
+  }
+</style>
