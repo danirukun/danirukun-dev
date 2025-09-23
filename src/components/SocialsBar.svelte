@@ -2,9 +2,9 @@
 import Icon from 'svelte-awesome';
 
 import github from 'svelte-awesome/icons/github';
-import twitter from 'svelte-awesome/icons/twitter';
 import twitch from 'svelte-awesome/icons/twitch';
 import youtubePlay from 'svelte-awesome/icons/youtubePlay';
+import x from '@fortawesome/free-brands-svg-icons/faXTwitter';
 
 import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import type { Socials } from '../types';
@@ -15,8 +15,8 @@ export let translate: boolean = false;
 
 <div class="flex flex-row place-content-center space-x-4 align-middle place-items-center">
 	{#if socials.twitter !== undefined}		
-	<a href={socials.twitter.url} target="_blank" rel="noopener noreferrer" class:hover:-translate-y-1={translate} class="hover:text-blue-400 transition-all">
-		<Icon data={twitter} scale={2} />
+	<a href={socials.twitter.url} target="_blank" rel="noopener noreferrer" class:hover:-translate-y-1={translate} class="hover:text-zinc-400 transition-all">
+		<Icon data={x.definition} scale={2} />
 	</a>
 	{/if}
 	{#if socials.github !== undefined}
