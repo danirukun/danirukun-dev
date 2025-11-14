@@ -1,8 +1,8 @@
 ---
-const { children } = Astro.props;
+// astro-portabletext passes children as a slot for mark components
 ---
 
-<code class="inline-code">{children}</code>
+<code class="inline-code"><slot /></code>
 
 <style>
   .inline-code {

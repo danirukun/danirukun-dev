@@ -1,4 +1,6 @@
 ---
+import { codeToHtml } from 'shiki';
+
 interface Props {
   node: {
     language?: string;
@@ -27,11 +29,75 @@ const languageNames: Record<string, string> = {
   yaml: 'YAML',
   markdown: 'Markdown',
   bash: 'Bash',
+  shell: 'Bash',
+  sh: 'Bash',
   sql: 'SQL',
   text: 'Plain Text'
 };
 
+// Map language names to Shiki language names
+const shikiLanguageMap: Record<string, string> = {
+  javascript: 'javascript',
+  typescript: 'typescript',
+  python: 'python',
+  html: 'html',
+  css: 'css',
+  java: 'java',
+  csharp: 'csharp',
+  php: 'php',
+  ruby: 'ruby',
+  go: 'go',
+  rust: 'rust',
+  json: 'json',
+  yaml: 'yaml',
+  markdown: 'markdown',
+  bash: 'bash',
+  shell: 'bash',
+  sh: 'bash',
+  sql: 'sql',
+  text: 'text'
+};
+
 const displayLanguage = languageNames[language] || language;
+const shikiLanguage = shikiLanguageMap[language] || 'text';
+
+// Highlight code using Shiki
+let highlightedCode = code;
+let codeClass = `language-${shikiLanguage}`;
+let useShikiHtml = false;
+
+try {
+  if (shikiLanguage !== 'text') {
+    const html = await codeToHtml(code, {
+      lang: shikiLanguage,
+      theme: 'github-dark',
+    });
+    
+    // Extract just the code content from Shiki's HTML output
+    // Shiki returns: <pre><code>...</code></pre>
+    const codeMatch = html.match(/<pre[^>]*><code[^>]*>(.*?)<\/code><\/pre>/s);
+    if (codeMatch) {
+      highlightedCode = codeMatch[1];
+      useShikiHtml = true;
+    }
+  } else {
+    // Escape HTML for plain text
+    highlightedCode = code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+} catch (error) {
+  // Fallback to HTML escaping if highlighting fails
+  highlightedCode = code
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 ---
 
 <div class="code-block">
@@ -46,7 +112,7 @@ const displayLanguage = languageNames[language] || language;
       {displayLanguage}
     </div>
   </div>
-  <pre class={`language-${language}`}><code>{code}</code></pre>
+  <pre class={codeClass}><code class={codeClass} set:html={highlightedCode}></code></pre>
   <button class="copy-button" data-code={code}>
     <span class="copy-icon">📋</span>
     Copy
