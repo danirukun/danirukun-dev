@@ -6,13 +6,17 @@ import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
 	const { data: posts } = await loadQuery<SanityDocument[]>({
-		query: `*[_type == "post"]`,
+		query: `*[_type == "post"] {
+			slug,
+			_updatedAt
+		}`,
 	});
-	return posts.map(({ slug }) => {
+	return posts.map(({ slug, _updatedAt }) => {
 		return {
 			params: {
 				slug: slug.current,
 			},
+			...(_updatedAt ? { lastmod: new Date(_updatedAt).toISOString() } : {}),
 		};
 	});
 }

@@ -44,6 +44,15 @@ All commands are run from the root of the project, from a terminal:
 
 The project uses SanityCMS for the content. The studio repository can be found on [Github](https://github.com/DaniruKun/cms).
 
+## Sitemap
+
+The site automatically generates a sitemap on each build. The sitemap is available at:
+
+- **Sitemap Index**: `https://danirukun.com/sitemap-index.xml`
+- **Sitemap**: `https://danirukun.com/sitemap-0.xml`
+
+The sitemap includes all pages with `changefreq` and `priority` metadata for better SEO. Blog posts automatically include `lastmod` dates based on their Sanity `_updatedAt` field.
+
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).

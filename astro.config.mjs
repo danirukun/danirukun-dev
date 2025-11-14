@@ -9,9 +9,18 @@ import sanity from "@sanity/astro";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://danirukun.com',
-  integrations: [mdx(), sitemap(), tailwind(), svelte(), sanity({
-    projectId: 'rq2xumfz',
-    dataset: 'production',
-    useCdn: false
-  })]
+  integrations: [
+    mdx(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
+    tailwind(),
+    svelte(),
+    sanity({
+      projectId: 'rq2xumfz',
+      dataset: 'production',
+      useCdn: false
+    })
+  ]
 });
