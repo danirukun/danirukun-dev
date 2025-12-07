@@ -4,8 +4,6 @@ import Footer from '../components/Footer.astro';
 import SocialsBar from '../components/SocialsBar.svelte';
 import { SITE_TITLE, SITE_DESCRIPTION, SOCIALS } from '../consts';
 
-import { Button } from 'bits-ui';
-
 const profilePicURL = 'https://github.com/DaniruKun.png';
 ---
 
@@ -13,70 +11,122 @@ const profilePicURL = 'https://github.com/DaniruKun.png';
 <html lang='en'>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			@keyframes float {
+				0%, 100% {
+					transform: translate(0, 0) scale(1);
+					opacity: 0.8;
+				}
+				33% {
+					transform: translate(30px, -30px) scale(1.1);
+					opacity: 1;
+				}
+				66% {
+					transform: translate(-20px, 20px) scale(0.9);
+					opacity: 0.6;
+				}
+			}
+			@keyframes gradient-shift {
+				0%, 100% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+			}
+			@keyframes blob {
+				0%, 100% {
+					transform: translate(0, 0) scale(1);
+				}
+				33% {
+					transform: translate(50px, -50px) scale(1.1);
+				}
+				66% {
+					transform: translate(-30px, 30px) scale(0.9);
+				}
+			}
+			.animate-blob {
+				animation: blob 20s ease-in-out infinite;
+			}
+			.animate-blob-delayed {
+				animation: blob 25s ease-in-out infinite;
+				animation-delay: 5s;
+			}
+		</style>
 	</head>
-	<body>
-		<main>
-			<section
-				class='relative mx-auto flex h-[70vh] flex-col place-content-around bg-slate-100 shadow-sm sm:min-h-screen'>
-				<div
-					id='hero'
-					class='mx-auto flex flex-col place-items-center justify-center gap-20 space-y-4 rounded-lg bg-white p-10 md:max-w-3xl'>
-					<section
-						class='flex w-full flex-col justify-between space-y-4 align-middle md:flex-row md:items-center'
-						id='avatar-nav'>
-						<div id='avatar-container' class='flex flex-col justify-center space-y-4 align-middle'>
-							<img
-								src={profilePicURL}
-								alt='Avatar'
-								class='mx-auto w-44 rounded-full border-2 border-black shadow-lg'
-							/>
-							<section id='brand-title' class='items-center text-center text-2xl font-bold'>
-								<p>danirukun</p>
-							</section>
+	<body class="relative overflow-hidden">
+		<div class="fixed inset-0 -z-10 overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-100/30 via-background to-purple-100/30 dark:from-blue-900/20 dark:via-background dark:to-purple-900/20"></div>
+			<div class="absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-400/30 blur-3xl animate-blob dark:bg-blue-600/20"></div>
+			<div class="absolute bottom-0 right-1/4 h-[500px] w-[500px] rounded-full bg-purple-400/30 blur-3xl animate-blob-delayed dark:bg-purple-600/20"></div>
+			<div class="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-400/25 blur-3xl animate-pulse dark:bg-indigo-600/15" style="animation-delay: 1s; animation-duration: 6s;"></div>
+			<div class="absolute top-1/4 right-1/3 h-[300px] w-[300px] rounded-full bg-pink-400/25 blur-2xl animate-pulse dark:bg-pink-600/15" style="animation-delay: 3s; animation-duration: 7s;"></div>
+		</div>
+		<main class="min-h-screen relative">
+			<section class="mx-auto flex min-h-screen flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8 relative">
+				<div class="w-full max-w-4xl">
+					<div class="overflow-hidden rounded-lg border border-border bg-card/95 backdrop-blur-md shadow-xl">
+						<div class="p-8 sm:p-12">
+							<div class="mb-8 flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-12">
+								<div class="flex flex-col items-center sm:items-start">
+									<img
+										src={profilePicURL}
+										alt='Avatar'
+										class='mb-4 h-32 w-32 rounded-full border-2 border-border shadow-md transition-transform hover:scale-105 sm:h-40 sm:w-40'
+									/>
+									<h1 class="text-3xl font-bold tracking-tight text-card-foreground sm:text-4xl">
+										danirukun
+									</h1>
+								</div>
+
+								<nav class="flex flex-col gap-3 sm:ml-auto sm:text-right">
+									<a
+										href='/portfolio'
+										class='text-lg font-semibold text-primary transition-colors hover:text-primary/80 no-underline'>
+										Portfolio
+									</a>
+									<a
+										href='/photography'
+										class='text-lg font-semibold text-primary transition-colors hover:text-primary/80 no-underline'>
+										Photography
+									</a>
+									<a
+										href='/blog'
+										class='text-lg font-semibold text-primary transition-colors hover:text-primary/80 no-underline'>
+										Blog
+									</a>
+									<a
+										href='/uses'
+										class='text-lg font-semibold text-primary transition-colors hover:text-primary/80 no-underline'>
+										Computing
+									</a>
+									<a
+										href='/work'
+										class='text-lg font-semibold text-primary transition-colors hover:text-primary/80 no-underline'>
+										Work
+									</a>
+								</nav>
+							</div>
+
+							<div class="space-y-4 border-t border-border pt-8">
+								<p class="text-base leading-relaxed text-card-foreground sm:text-lg">
+									Hi, my name is Dan. I build stuff in the creator industry, with a lot of experience in video streaming, web development, high load systems and CG.
+								</p>
+								<p class="text-base leading-relaxed text-card-foreground sm:text-lg">
+									I've worked with big and small brands like Hasbro, Twitch, MiHoyo etc. on various high impact projects.
+									I'm a big fan of Japanese culture, so you will find me at overseas events a lot!
+								</p>
+								<p class="text-base leading-relaxed text-card-foreground sm:text-lg">
+									Feel free to reach out to me on <code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground">dan (at) danirukun (dot) com</code> if you want your vision to be realised!
+								</p>
+							</div>
 						</div>
+					</div>
 
-						<section id='navigation' class='align-right text-right'>
-							<nav class='flex flex-col space-y-4'>
-								<Button.Root
-									href='/portfolio'
-									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
-									Portfolio
-								</Button.Root>
-								<Button.Root
-									href='/photography'
-									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
-									Photography
-								</Button.Root>
-								<Button.Root
-									href='/blog'
-									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
-									Blog
-								</Button.Root>
-								<Button.Root
-									href='/uses'
-									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
-									Computing
-								</Button.Root>
-								<Button.Root
-									href='/work'
-									class='text-center text-lg font-semibold text-primary hover:text-slate-600 md:text-right'>
-									Work
-								</Button.Root>
-							</nav>
-						</section>
-					</section>
-					<p>
-						Hi, my name is Dan. I build stuff in the creator industry, with a lot of experience in video streaming, web development, high load systems and CG.
-						<br />
-						I've worked with big and small brands like Hasbro, Twitch, MiHoyo etc. on various high impact projects.
-						I'm a big fan of Japanese culture, so you will find me at overseas events a lot!
-						Feel free to reach out to me on <code>dan (at) danirukun (dot) com</code> if you want your vision to be realised!
-					</p>
+					<div class="mt-8 flex justify-center">
+						<SocialsBar socials={SOCIALS} translate />
+					</div>
 				</div>
-
-				<section id='socials' class='mx-auto w-fit px-4 py-2'>
-					<SocialsBar socials={SOCIALS} translate />
-				</section>
 			</section>
 			<Footer />
 		</main>

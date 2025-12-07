@@ -3,7 +3,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import FormattedDate from '../../components/FormattedDate.astro';
+import BlogFilter from '../../components/BlogFilter.svelte';
 
 import placeholderImg from '../../images/blog-index-placeholder.png';
 import type { SanityDocument } from 'sanity';
@@ -11,10 +11,25 @@ import { loadQuery } from '../../sanity/lib/load-query';
 import { urlForImage } from '../../sanity/lib/urlForImage';
 
 const { data: posts } = await loadQuery<SanityDocument[]>({
-	query: `*[_type == "post"]`,
+	query: `*[_type == "post"] | order(_updatedAt desc) {
+		...,
+		categories[]->
+	}`,
 });
 
-// console.log(posts);
+const allCategories = Array.from(
+	new Set(
+		posts
+			.flatMap((post) => post.categories || [])
+			.map((cat: { title: string }) => cat.title)
+	)
+).sort();
+
+const postsWithImageUrls = posts.map((post) => ({
+	...post,
+	imageUrl: post.mainImage ? urlForImage(post.mainImage).url() : placeholderImg.src,
+	imageAlt: post.mainImage?.alt || post.title || "",
+}));
 ---
 
 <!doctype html>
@@ -24,34 +39,18 @@ const { data: posts } = await loadQuery<SanityDocument[]>({
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section id="content-header">
-				<article class="py-8 text-2xl text-center">
-					<p>I write about tech and life things.</p>
-				</article>
-			</section>
-			<section id="blog-index">
-				<div class="mx-auto grid max-w-6xl grid-cols-1 sm:grid-cols-2 gap-8 p-8">
-					{
-						posts.map((post) => (
-							<div class="space-4 mx-auto">
-								<a href={`/blog/${post.slug.current}/`} class="no-underline">
-									<div class="mx-auto h-96 w-full">
-										<img
-											class="h-full w-full object-cover"
-											src={post.mainImage ? urlForImage(post.mainImage).url() : placeholderImg.src}
-											alt={post.mainImage?.alt || ""}
-										/>
-									</div>
-									<h3 class="title">{post.title}</h3>
-									<p class="date">
-										<FormattedDate date={new Date(post._updatedAt)} />
-									</p>
-								</a>
-							</div>
-						))
-					}
-				</div>
+		<main class="mx-auto max-w-7xl">
+			<header class="px-4 py-12 text-center sm:px-6 lg:px-8">
+				<p class="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl">
+					I write about tech and life things.
+				</p>
+			</header>
+			<section id="blog-index" class="px-4 pb-12 sm:px-6 lg:px-8">
+				<BlogFilter 
+					client:load
+					posts={postsWithImageUrls} 
+					categories={allCategories}
+				/>
 			</section>
 		</main>
 		<Footer />
