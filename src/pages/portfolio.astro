@@ -9,7 +9,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { sanityClient } from "sanity:client";
 import type { Project } from "../types";
 
-const projects = await sanityClient.fetch(`*[_type == "project"] | order(_createdAt asc)`) as Project[];
+const projects = await sanityClient.fetch(`*[_type == "project"] | order(_createdAt desc)`) as Project[];
 ---
 
 <!doctype html>
@@ -19,12 +19,15 @@ const projects = await sanityClient.fetch(`*[_type == "project"] | order(_create
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
-		<main class="mx-auto max-w-6xl">
-			<h1 class="py-4 text-6xl font-bold text-center">Portfolio</h1>
-			<article class="space-y-8 text-2xl text-center">
-				<p>Here you will find past and current projects I work on.</p>
-				<p></p>
-			</article>
+		<main class="mx-auto max-w-7xl">
+			<header class="px-4 py-12 text-center sm:px-6 lg:px-8">
+				<h1 class="mb-4 text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+					Portfolio
+				</h1>
+				<p class="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl">
+					Here you will find past and current projects I work on.
+				</p>
+			</header>
 			<ProjectCollection projects={projects} />
 		</main>
 		<Footer />

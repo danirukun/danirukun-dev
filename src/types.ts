@@ -1,10 +1,22 @@
 import { ANIMATIONS } from './consts';
 
+export type SanityImageAsset = {
+	_ref: string;
+	_type: "reference";
+};
+
+export type SanityImage = {
+	_type: "image";
+	alt?: string;
+	asset: SanityImageAsset;
+};
+
 export type Project = {
 	name: string;
 	description: string;
 	projectURL?: string;
 	slug: Slug;
+	thumbnail?: SanityImage;
 };
 
 export type Preference = {

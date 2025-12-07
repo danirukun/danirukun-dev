@@ -5,7 +5,7 @@
 	export let projects: Project[];
 </script>
 
-<section class="grid grid-cols-1 gap-4 bg-background md:grid-cols-2 px-2">
+<section class="grid grid-cols-1 gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
 	{#each projects as project}
 		<ProjectEntry {...project} />
 	{/each}
