@@ -9,7 +9,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { sanityClient } from "sanity:client";
 import type { Project } from "../types";
 
-const projects = await sanityClient.fetch(`*[_type == "project"] | order(_createdAt desc)`) as Project[];
+const projects = await sanityClient.fetch(
+	`*[_type == "project" && status != "draft"] | order(_createdAt desc)`,
+) as Project[];
 ---
 
 <!doctype html>
